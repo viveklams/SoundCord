@@ -7,6 +7,7 @@ import authRoutes from "./routes/auth.routes.js";
 import songRoutes from "./routes/songs.routes.js";
 import albumRoutes from "./routes/albums.routes.js";
 import statRoutes from "./routes/stats.routes.js";
+import { connectDB } from "./lib/db.js";
 dotenv.config();
 
 const app = express();
@@ -22,4 +23,5 @@ app.use("/api/stats", statRoutes);
 
 app.listen(PORT, () => {
   console.log("Server is running on port" + PORT);
+  connectDB();
 });
